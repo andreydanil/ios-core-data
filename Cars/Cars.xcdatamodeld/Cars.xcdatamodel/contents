@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Automatic">
+    <entity name="CarList" syncable="YES">
+        <attribute name="carmake" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="carmodel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="caryear" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Entity1" syncable="YES"/>
+    <elements>
+        <element name="CarList" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Entity1" positionX="-54" positionY="-9" width="128" height="45"/>
+    </elements>
+</model>
