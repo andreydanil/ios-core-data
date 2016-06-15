@@ -15,6 +15,12 @@ class AddViewController: UIViewController {
     @IBOutlet weak var TextFieldCarModel: UITextField!
     @IBOutlet weak var TextFieldCarYear: UITextField!
     
+    var carmake: String = ""
+    var carmodel: String = ""
+    var caryear: String = ""
+    
+    var existingItem: NSManagedObject!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,19 +34,34 @@ class AddViewController: UIViewController {
         
         let theContext: NSManagedObjectContext = AppDel.managedObjectContext
         let theEnt = NSEntityDescription.entityForName("CarList", inManagedObjectContext: theContext)
-        let newItem = Model(entity: theEnt!, insertIntoManagedObjectContext: theContext)
         
-        newItem.carmake = TextFieldCarMake.text!
-        newItem.carmodel = TextFieldCarModel.text!
-        newItem.caryear = TextFieldCarYear.text!
+        
+        if (existingItem != nil) {
+            
+            existingItem.setValue(TextFieldCarMake.text as String?, forKey: "carmake")
+            existingItem.setValue(TextFieldCarModel.text as String?, forKey: "carmodel")
+            existingItem.setValue(TextFieldCarYear.text as String?, forKey: "caryear")
+            
+        } else {
+            
+            let newitem = Model(entity: theEnt!, insertIntoManagedObjectContext: theContext)
+            
+            newitem.carmake = TextFieldCarMake.text!
+            newitem.carmodel = TextFieldCarModel.text!
+            newitem.caryear = TextFieldCarYear.text!
+            
+        }
         
         do {
+            
             try theContext.save()
+            
         } catch _ {
             
         }
         
-        self.navigationController?.popToViewController(<#T##viewController: UIViewController##UIViewController#>, animated: true)
+        self.navigationController?.popToRootViewControllerAnimated(true)
+        
         
     }
     
