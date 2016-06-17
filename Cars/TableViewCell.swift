@@ -14,6 +14,10 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var CellModel: UILabel!
     @IBOutlet weak var CellYear: UILabel!
     
+    enum status {
+        case Excellent, Good, Average, Bad
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,4 +29,20 @@ class TableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func getStatus( _: status) {
+        // Refactoring staus 
+        var selected = selectStatus(status.Excellent, 1)
+        selected = selectStatus(status.Good, 2)
+        selected = selectStatus(status.Average, 3)
+        selected = selectStatus(status.Bad, 4)
+        
+    }
+
+    func selectStatus(var _: status, var _: currentStatus) {
+        if(status)
+        {
+            return currentStatus
+        }
+        
+    }
 }
