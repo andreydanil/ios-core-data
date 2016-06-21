@@ -35,14 +35,18 @@ class TableViewCell: UITableViewCell {
         selected = selectStatus(status.Good, 2)
         selected = selectStatus(status.Average, 3)
         selected = selectStatus(status.Bad, 4)
-        
     }
 
-    func selectStatus(var _: status, var _: currentStatus) {
-        if(status)
-        {
-            return currentStatus
+    func selectStatus(var _: status, var˜ _: currentStatus) {
+        if(currentStatus != nil) {
+            return
         }
         
+        if(status.Average || status.Bad || status.Average || status.Bad)
+        {
+            return super.setSelected(setSelected(false, animated: false), animated: false)
+        }
     }
+    
+    
 }
